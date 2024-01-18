@@ -46,5 +46,3 @@ This project consists of two main components:
 - PyMongo
 
 ## License
-
-This project is licensed under the [MIT License](LICENSE).
