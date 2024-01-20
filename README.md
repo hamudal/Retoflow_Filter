@@ -44,5 +44,3 @@ This project consists of two main components:
 - GeoPandas
 - Matplotlib
 - PyMongo
-
-## License
