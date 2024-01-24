@@ -1268,3 +1268,8 @@ ZIP_Dict_Extractor_Valid/TestGround/V4/config.py
 ZIP_Dict_Extractor_Valid/TestGround/Old/V3/config.py
 ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/net_area.json
 ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/net_bus.json
+ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/Pandas/data_checks.xlsx
+ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/Pandas/net_areas.xlsx
+ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/Pandas/net_loads.xlsx
+ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/Pandas/DataCheck_Pandas.ipynb
+ZIP_Dict_Extractor_Valid/TestGround/Dario_MongoDB_Connection.ipynb/Pandas/Neo_DataCheck.xlsx
