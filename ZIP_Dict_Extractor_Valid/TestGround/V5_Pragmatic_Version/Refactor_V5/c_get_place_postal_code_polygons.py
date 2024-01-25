@@ -1,5 +1,5 @@
-# get_place_postal_code_polygons.py
-from common_functions import format_geojson_data, save_geojson_to_file
+# c_get_place_postal_code_polygons.py
+from b_common_functions import format_geojson_data, save_geojson_to_file
 
 def get_place_postal_code_polygons(place_name):
     postal_code_polygons = ox.features_from_place(place_name, tags={"boundary": "postal_code"})
