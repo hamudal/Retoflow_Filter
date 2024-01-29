@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project utilizes OSMnx, GeoPandas, Shapely, Matplotlib, and MongoDB to extract, process, and visualize postal code polygon data. It consists of two main components: 
+This project utilizes OSMnx, GeoPandas, Shapely, Matplotlib, and MongoDB to extract, process, and visualize postal code polygon data. It consists of two main components:
 
-1. **postal_code_processor.py:** A script to extract postal code polygons from OpenStreetMap using OSMnx, convert them to GeoJSON format, and optionally save them to MongoDB.
+1. **a_Zip_Polygon_Dict_Extraction_V3.ipynb:** A Jupyter Notebook to extract postal code polygons from OpenStreetMap using OSMnx, convert them to GeoJSON format, and optionally save them to MongoDB.
 
-2. **MongoDBConnector.py:** A class that facilitates connecting to a MongoDB database, inserting GeoJSON data into a specified collection, and closing the database connection.
+2. **b_MongoDB_Connection_V3.ipynb:** A Jupyter Notebook containing a class that facilitates connecting to a MongoDB database, inserting GeoJSON data into a specified collection, and closing the database connection.
 
 ## Installation
 
@@ -17,13 +17,13 @@ This project utilizes OSMnx, GeoPandas, Shapely, Matplotlib, and MongoDB to extr
      ```
 
 2. **MongoDB:**
-   - Make sure MongoDB is installed on your local machine or update the connection details in `MongoDBConnector.py` to point to your MongoDB server.
+   - Make sure MongoDB is installed on your local machine or update the connection details in `b_MongoDB_Connection_V3.ipynb` to point to your MongoDB server.
 
 3. **Usage:**
-   - Run `postal_code_processor.py` to extract postal code polygons, convert them to GeoJSON, and optionally save them to MongoDB.
-   - Customize the parameters in the script, such as the place name, saved GeoJSON file, and MongoDB connection details.
+   - Run `a_Zip_Polygon_Dict_Extraction_V3.ipynb` to extract postal code polygons, convert them to GeoJSON, and optionally save them to MongoDB.
+   - Customize the parameters in the notebook, such as the place name, saved GeoJSON file, and MongoDB connection details.
 
-## postal_code_processor.py
+## a_Zip_Polygon_Dict_Extraction_V3.ipynb
 
 ### Functions
 
@@ -48,7 +48,7 @@ Plots the GeoDataFrame containing postal code polygons on a map and optionally h
   - `highlight_postal_code`: Postal code to highlight. Default is `None`.
   - `zoom_into_city`: If `True`, zooms into the city area. Default is `False`.
 
-## MongoDBConnector.py
+## b_MongoDB_Connection_V3.ipynb
 
 ### Class: MongoDBConnector
 
@@ -77,7 +77,7 @@ Closes the MongoDB connection.
 
 ## Example Usage
 
-### postal_code_processor.py
+### a_Zip_Polygon_Dict_Extraction_V3.ipynb
 
 ```python
 # Example usage for Germany with saving GeoJSON data, using EPSG:25832,
