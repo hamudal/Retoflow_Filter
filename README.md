@@ -1,46 +1,102 @@
-# Retoflow_ZIP_Dict_Filter & MongoDB Connection
+# Project Readme
 
 ## Overview
 
-This project consists of two main components:
+This project utilizes OSMnx, GeoPandas, Shapely, Matplotlib, and MongoDB to extract, process, and visualize postal code polygon data. It consists of two main components: 
 
-### a_ZIP_Dict_Extractor_V2
+1. **postal_code_processor.py:** A script to extract postal code polygons from OpenStreetMap using OSMnx, convert them to GeoJSON format, and optionally save them to MongoDB.
 
-#### GeoJson Data Approach
+2. **MongoDBConnector.py:** A class that facilitates connecting to a MongoDB database, inserting GeoJSON data into a specified collection, and closing the database connection.
 
-- **Function:** `get_place_postal_code_polygons(place_name)`
-- **Description:** Fetches postal code polygons for a specified location using OSMnx.
-- **Example:** `kassel_polygons = get_place_postal_code_polygons("Kassel")`
+## Installation
 
-#### GeoJson Data File Kassel
+1. **Dependencies:**
+   - Install required Python libraries using pip:
+     ```bash
+     pip install osmnx geopandas matplotlib shapely pymongo
+     ```
 
-- **Function:** `save_geojson_to_file(geojson_data, file_path)`
-- **Description:** Saves GeoJSON data to a specified file path.
-- **Example:** `save_geojson_to_file(kassel_geojson_data, 'kassel_geojson_data.geojson')`
+2. **MongoDB:**
+   - Make sure MongoDB is installed on your local machine or update the connection details in `MongoDBConnector.py` to point to your MongoDB server.
 
-### b_Mongo_DB_Connection_V2
+3. **Usage:**
+   - Run `postal_code_processor.py` to extract postal code polygons, convert them to GeoJSON, and optionally save them to MongoDB.
+   - Customize the parameters in the script, such as the place name, saved GeoJSON file, and MongoDB connection details.
 
-#### Create MongoDB Connection
+## postal_code_processor.py
 
-- **Function:** `create_mongo_db_connection()`
-- **Description:** Creates a connection to a MongoDB instance.
-- **Returns:** MongoClient instance.
+### Functions
 
-#### Insert GeoJSON Data to MongoDB
+#### `handle_multipolygon(multipolygon) -> List[Polygon]`
+Handles the conversion of MultiPolygon or Polygon geometries to a list of Shapely Polygon objects.
 
-- **Function:** `insert_geojson_data_to_mongo(db, collection_name, geojson_file_path)`
-- **Description:** Inserts GeoJSON data into a specified MongoDB collection.
+#### `postal_code_polygon_dict_extractor(place_name, save_geojson=False) -> Dict[str, List[Polygon]]`
+Extracts postal code polygons using OSMnx, converts them to Shapely Polygons, and optionally saves the GeoJSON file.
 
-## Quick Start
+- **Parameters:**
+  - `place_name`: The location for which postal code polygons are extracted.
+  - `save_geojson`: If `True`, saves the GeoJSON file. Default is `False`.
 
-1. Clone the repository.
-2. Install the required dependencies.
-3. Run the desired components.
+- **Returns:**
+  - A dictionary where keys are postal codes, and values are lists of Shapely Polygons representing the postal code boundaries.
 
-## Dependencies
+#### `plot_all_postal_code_polygons(gdf, highlight_postal_code=None, zoom_into_city=False)`
+Plots the GeoDataFrame containing postal code polygons on a map and optionally highlights a specific postal code.
 
-- Python 3.x
-- OSMnx
-- GeoPandas
-- Matplotlib
-- PyMongo
+- **Parameters:**
+  - `gdf`: GeoDataFrame containing postal code polygons.
+  - `highlight_postal_code`: Postal code to highlight. Default is `None`.
+  - `zoom_into_city`: If `True`, zooms into the city area. Default is `False`.
+
+## MongoDBConnector.py
+
+### Class: MongoDBConnector
+
+#### `__init__(self, database_name, collection_name)`
+Constructor that initializes a MongoDBConnector instance.
+
+- **Parameters:**
+  - `database_name`: Name of the MongoDB database.
+  - `collection_name`: Name of the MongoDB collection.
+
+#### `connect_to_local_mongodb(self) -> Tuple[MongoClient, Collection]`
+Connects to the local MongoDB server and returns the MongoClient and Collection objects.
+
+- **Returns:**
+  - A tuple containing the MongoClient and Collection objects.
+
+#### `insert_geojson_data(self, geojson_file_path, chunk_size=1000)`
+Inserts GeoJSON data into the MongoDB collection in chunks.
+
+- **Parameters:**
+  - `geojson_file_path`: Path to the GeoJSON file.
+  - `chunk_size`: Size of each insertion chunk. Default is `1000`.
+
+#### `close_connection(self)`
+Closes the MongoDB connection.
+
+## Example Usage
+
+### postal_code_processor.py
+
+```python
+# Example usage for Germany with saving GeoJSON data, using EPSG:25832,
+# and optionally zooming into Kassel and highlighting a postal code
+place_postal_code_polygons_germany = postal_code_polygon_dict_extractor("Germany", save_geojson=True)
+highlight_postal_code_germany = "34117"
+gdf_germany = gpd.GeoDataFrame(geometry=[geometry for geometries in place_postal_code_polygons_germany.values() for geometry in geometries])
+gdf_germany['postal_code'] = [postal_code for postal_code in place_postal_code_polygons_germany.keys() for _ in place_postal_code_polygons_germany[postal_code]]
+zoom_into_city = True
+highlight_postal_code_kassel = "34117"
+
+# Plot Germany map with highlighted postal code
+plot_all_postal_code_polygons(gdf_germany, highlight_postal_code=highlight_postal_code_germany, zoom_into_city=zoom_into_city)
+
+# Optionally, you can zoom into Kassel and highlight a postal code
+if zoom_into_city:
+    place_postal_code_polygons_kassel = postal_code_polygon_dict_extractor("Kassel")
+    gdf_kassel = gpd.GeoDataFrame(geometry=[geometry for geometries in place_postal_code_polygons_kassel.values() for geometry in geometries])
+    gdf_kassel['postal_code'] = [postal_code for postal_code in place_postal_code_polygons_kassel.keys() for _ in place_postal_code_polygons_kassel[postal_code]]
+
+    # Plot Kassel map with highlighted postal code
+    plot_all_postal_code_polygons(gdf_kassel, highlight_postal_code=highlight_postal_code_kassel)
