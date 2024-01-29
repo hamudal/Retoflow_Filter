@@ -100,3 +100,26 @@ if zoom_into_city:
 
     # Plot Kassel map with highlighted postal code
     plot_all_postal_code_polygons(gdf_kassel, highlight_postal_code=highlight_postal_code_kassel)
+
+
+# Example usage of the class
+if __name__ == "__main__":
+    # User input for the database and collection names
+    database_name = "ZIP_Poly_Ger_Test"
+    collection_name = "ZIP_Poly_Ger_Collection_Test"
+
+    # Create an instance of MongoDBConnector
+    mongo_connector = MongoDBConnector(database_name, collection_name)
+
+    # Connect to MongoDB
+    mongo_client, mongo_collection = mongo_connector.connect_to_local_mongodb()
+
+    # Example GeoJSON file path
+    geojson_file_path = 'Germany_postal_codes.geojson'  # Update the file path accordingly
+
+    # Insert GeoJSON data into MongoDB
+    mongo_connector.insert_geojson_data(geojson_file_path, chunk_size=1000)
+
+    # Close MongoDB connection when done
+    mongo_connector.close_connection()
+
