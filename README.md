@@ -101,6 +101,8 @@ if zoom_into_city:
     # Plot Kassel map with highlighted postal code
     plot_all_postal_code_polygons(gdf_kassel, highlight_postal_code=highlight_postal_code_kassel)
 
+---
+
 ### b_MongoDB_Connection_V3.ipynb
 
 ```python
