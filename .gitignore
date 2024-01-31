@@ -1752,3 +1752,6 @@ TestGround & Prototype/TestGround/Old/V4_1/config.py
 Check_Out_Leon/b_Extensive_Version/Germany_postal_codes.geojson
 Check_Out_Leon/a_Light_Version/Germany_postal_codes.geojson
 Check_Out_Leon/d_All_in_One/Germany_postal_codes.geojson
+Check_Out_Leon/All_in_One/b_GeoJson_Less/Germany_postal_codes.geojson
+Check_Out_Leon/All_in_One/a_GeoJson_Standard/Germany_postal_codes.geojson
+Check_Out_Leon/All_in_One/a_GeoJson_Standard/GeoJSON.js
