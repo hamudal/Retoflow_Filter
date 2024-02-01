@@ -1,10 +1,10 @@
 # GeoData Processing and MongoDB Integration
 
-Latest Version: https://github.com/hamudal/Retoflow_Filter/blob/main/Check_Out_Leon/All_in_One/a_GeoJson_Standard/a_Zip_Dict_polygon_Extractor_V6_1.ipynb
+**Latest Version:** [a_Zip_Dict_polygon_Extractor_V6_1.ipynb](https://github.com/hamudal/Retoflow_Filter/blob/main/Check_Out_Leon/All_in_One/a_GeoJson_Standard/a_Zip_Dict_polygon_Extractor_V6_1.ipynb)
 
 ## Overview
 
-This set of Python scripts is designed for processing geographical data, specifically polygon shapes related to postal codes. The processed data is then stored in a MongoDB database. The workflow includes:
+This set of Python scripts, consolidated into a Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`), is designed for processing geographical data, specifically polygon shapes related to postal codes. The processed data is then stored in a MongoDB database. The workflow includes:
 
 1. Extracting and transforming polygon shapes into GeoJSON standard.
 2. Saving the GeoJSON data to a file for further use.
@@ -27,13 +27,9 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
     pip install osmnx geopandas shapely pymongo matplotlib
     ```
 
-2. Run the script `extract_transform_geojson.py`:
+2. Run the script `a_Zip_Dict_polygon_Extractor_V6_1.ipynb`:
 
-    ```bash
-    python extract_transform_geojson.py
-    ```
-
-   This script fetches place polygons from OpenStreetMap, filters for valid geometries, and creates a GeoDataFrame. The resulting GeoJSON data is saved to a file, and a visualization is plotted.
+    - Execute the notebook cell labeled `Extract and Transform Polygon Shapes`. This cell fetches place polygons from OpenStreetMap, filters for valid geometries, and creates a GeoDataFrame. The resulting GeoJSON data is saved to a file, and a visualization is plotted.
 
 ### Connect to MongoDB and Integrate Data
 
@@ -43,13 +39,9 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
     pip install pymongo
     ```
 
-2. Run the script `connect_to_mongodb.py`:
+2. Run the script `a_Zip_Dict_polygon_Extractor_V6_1.ipynb` - the next cell:
 
-    ```bash
-    python connect_to_mongodb.py
-    ```
-
-   This script connects to a local MongoDB, inserts GeoJSON data in chunks, and closes the MongoDB connection.
+    - Execute the notebook cell labeled `Connect to MongoDB and Integrate Data`. This script connects to a local MongoDB, inserts GeoJSON data in chunks, and closes the MongoDB connection.
 
 ### Polygon Functions
 
