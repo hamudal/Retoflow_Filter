@@ -1,10 +1,10 @@
 # GeoData Processing and MongoDB Integration
 
-**Latest Version:** [a_Zip_Dict_polygon_Extractor_V6_1.ipynb](https://github.com/hamudal/Retoflow_Filter/blob/main/Check_Out_Leon/All_in_One/a_GeoJson_Standard/a_Zip_Dict_polygon_Extractor_V6_1.ipynb)
+**Latest Version:** [a_Zip_Polygon_Extractor_V7.ipynb](https://github.com/hamudal/Retoflow_Filter/blob/main/Check_Out_Leon/All_in_One/a_Zip_Polygon_Extractor_V7.ipynb)
 
 ## Overview
 
-This consolidated Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`) contains Python scripts for processing geographical data, specifically polygon shapes related to postal codes. The processed data is stored in a MongoDB database. The workflow includes:
+This consolidated Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`) contains Python scripts for processing geographical data, specifically polygon shapes related to postal codes. The processed data is stored in a MongoDB database. The workflow includes:
 
 1. Extracting and transforming polygon shapes into GeoJSON standard.
 2. Saving the GeoJSON data to a file for further use.
@@ -27,7 +27,7 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
     pip install osmnx geopandas shapely pymongo matplotlib
     ```
 
-2. Run the script in the Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`):
+2. Run the script in the Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`):
 
     - Execute the cells related to "Extract and Transform Polygon Shapes". This fetches place polygons from OpenStreetMap, filters for valid geometries, and creates a GeoDataFrame. The resulting GeoJSON data is saved to a file, and a visualization is plotted.
 
@@ -39,7 +39,7 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
     pip install pymongo
     ```
 
-2. Continue running the script in the same Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`) - the next cells:
+2. Continue running the script in the same Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`) - the next cells:
 
     - Execute the cells related to "Connect to MongoDB Local, Integrate Data in Chunks". This script connects to a local MongoDB, inserts GeoJSON data in chunks, and closes the MongoDB connection.
 
@@ -47,13 +47,13 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
 
 #### Retrieve Polygon Shape and Data
 
-1. Continue running the script in the Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`):
+1. Continue running the script in the Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`):
 
     - Execute the cells related to "Poly Functions" and "Connect to MongoDB, get Polygon Shape & Data". This script connects to MongoDB, retrieves GeoJSON data, and plots the polygon for a specified postal code.
 
 #### Find Nearest Postal Code by Coordinates
 
-1. Continue running the script in the Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`):
+1. Continue running the script in the Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`):
 
     - Execute the cells related to "Poly Functions" and "Connect to MongoDB, use Coordinate and find nearest Postal Code". This script connects to MongoDB, retrieves GeoJSON data, and finds the nearest postal code based on specified coordinates. It plots the polygon for the identified postal code.
 
@@ -67,7 +67,7 @@ Additionally, there are functions to retrieve polygon shapes and data from Mongo
 
 ## Overview
 
-This consolidated Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`) contains Python scripts for processing geographical data, specifically polygon shapes related to postal codes. The processed data is stored in a MongoDB database. The workflow includes:
+This consolidated Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`) contains Python scripts for processing geographical data, specifically polygon shapes related to postal codes. The processed data is stored in a MongoDB database. The workflow includes:
 
 1. **Extracting and Transforming Polygon Shapes into GeoJSON Standard:**
    - **Libraries Used:**
@@ -96,3 +96,8 @@ This consolidated Jupyter Notebook (`a_Zip_Dict_polygon_Extractor_V6_1.ipynb`) c
      - A class (`MongoDBConnector`) is utilized to connect to a local MongoDB instance and return client and collection instances.
      - The GeoJSON data is read from the file and inserted into MongoDB in chunks.
 
+Feel free to explore and adapt these scripts to suit your specific use case!
+
+---
+
+*Note: Replace "yourusername" and "yourrepository" with your actual GitHub username and repository information.*
