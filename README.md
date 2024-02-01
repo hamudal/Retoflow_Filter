@@ -95,9 +95,3 @@ This consolidated Jupyter Notebook (`a_Zip_Polygon_Extractor_V7.ipynb`) contains
    - **Connecting to Local MongoDB:**
      - A class (`MongoDBConnector`) is utilized to connect to a local MongoDB instance and return client and collection instances.
      - The GeoJSON data is read from the file and inserted into MongoDB in chunks.
-
-Feel free to explore and adapt these scripts to suit your specific use case!
-
----
-
-*Note: Replace "yourusername" and "yourrepository" with your actual GitHub username and repository information.*
