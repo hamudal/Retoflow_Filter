@@ -1,8 +1,0 @@
-{
-    "database_name": "Polygon_By_Postal_Code_DB",
-    "collection_name": "Polygon_By_Postal_Code_Collection",
-    "host": "localhost",
-    "port": 27017,
-    "geojson_file_path": "Germany_postal_codes.geojson"
-  }
-  
