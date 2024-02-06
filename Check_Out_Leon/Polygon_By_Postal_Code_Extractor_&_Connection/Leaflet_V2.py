@@ -3,8 +3,10 @@ import geopandas as gpd
 from dash import Dash, html, dcc, callback, Output, Input, State
 import dash_leaflet as dl
 
-# Replace the actual file path with your GeoJSON file location
+# (Ger) Replace the actual file path with your GeoJSON file location
 geojson_file_path = r"C:\Users\Admin\OneDrive\Dokumente\Projects\Retoflow_Filter-1\TestGround_&_Prototype\TestGround\Test_V7\Test_Test\Test_Dario\Polygon_By_Postal_Code_Extractor_&_Connection_V8_Test\V8_Dario\Germany_postal_codes.geojson"
+
+#geojson_file_path = r"C:\Users\Admin\OneDrive\Dokumente\Projects\Retoflow_Filter-1\Check_Out_Leon\Polygon_By_Postal_Code_Extractor_&_Connection\Kassel_postal_codes.geojson"
 
 # Load GeoJSON data with geopandas
 gdf = gpd.read_file(geojson_file_path)
