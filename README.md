@@ -1,4 +1,4 @@
-# Geographic Data Processing README
+# Geographic Data Processing 
 
 This README provides an overview of three Python scripts designed for geographic data processing. Each script serves a specific function within the context of handling geographic information.
 
@@ -53,4 +53,3 @@ The MongoDB connection details and the path to the GeoJSON file are specified wi
 python c_Exploration_Tools.ipynb
 ```
 
-Feel free to copy this Markdown-formatted README and use it in your project documentation.
